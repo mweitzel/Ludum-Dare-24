@@ -85,7 +85,7 @@ function makeNewMap(){
 			for(j = 0; j < size; j++){
 				var pointB = Vector2(i, j);
 //				field[i,j] += 1/(Vector2.Distance(pointA, pointB));
-				field[i,j] += intify(value.z/(Vector2.Distance(pointA, pointB)));
+				field[i,j] += (value.z/(Vector2.Distance(pointA, pointB)));
 			}
 		}
 	}
@@ -103,7 +103,6 @@ function makeNewMap(){
 //	}
 	
 	thing = values.ToBuiltin(Vector3);
-
 }
 
 function intify(number : float) : int {
