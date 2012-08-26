@@ -61,6 +61,7 @@ function buildShit() {
 	}
 //	bucket.localScale.z = 1.1;
 	bucket.localScale.z = 1.001;
+	bucket.transform.position.z +=1;
 }
 
 function makeTriangle(i : int, j : int) : SpriteAnimation {
@@ -118,8 +119,8 @@ static function getTileType(myTileMaker : triTileMaker, i : int, j : int) : Stri
 	j = -j/10;
 	
 	
-	if(i < 0 || i > myTileMaker.noise.size || j < 0 || j > myTileMaker.noise.size)
-		return "x";
+	if(i < 0 || i >= myTileMaker.noise.size-1 || j < 0 || j >= myTileMaker.noise.size-1)
+		return "x";	
 	
 	var point1 = myTileMaker.noise.field[i, j+1];
 	var point2 = myTileMaker.noise.field[i, j];

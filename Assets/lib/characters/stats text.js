@@ -57,8 +57,13 @@ function showTheirStuff(){
 
 var showAsOther = 0.0;
 
+private var nextCheck = 0.0;
 function OnTriggerStay(other : Collider){
-	showAsOther = Time.time + 0.2;
+	
+	if(Time.time > nextCheck && other.transform.gameObject.GetComponent(Player).beingControlled){
+		showAsOther = Time.time + 0.2;
+		nextCheck = Time.time+0.199;
+	}
 }
 function shouldShowAsOther() : boolean {
 	return showAsOther > Time.time;

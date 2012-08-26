@@ -15,7 +15,7 @@ function Update () {
 	Destroy(holder);
 	holder = new GameObject();
 	makeSprites();
-	
+	holder.transform.position.z -= 1;
 //	var i : int;
 //	var j : int;
 //	for(i = 0; i < noise.size; i++){
@@ -56,6 +56,8 @@ function makeSprites(){
 			makeSpritesFor(i,j);
 		}
 	}
+	
+	
 }
 
 function makeSpritesFor(i : float, j : float){

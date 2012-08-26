@@ -57,7 +57,10 @@ function FixedUpdate () {
 		previous = direc;
 		Mover.move(transform, direc, stats, tileMaker, previous);
 	}
-		
+
+	var type = tileMaker.getTileType(tileMaker, transform.position.x+5, transform.position.y-5);
+	if(type == "x")
+		Destroy(gameObject);
 	
 }
 private var previous : Vector3;
@@ -104,8 +107,9 @@ class Mover {
 	if(type == "h")
 		speed *= stats.mountainSpeed;
 		
-		if(type == "x")
+		if(type == "x"){
 			direction = -10*direction;//lastDirection;
+			}
 		
 		transform.position += direction * speed;
 		
