@@ -9,14 +9,7 @@ var stats : Stats;
 var tileMaker : triTileMaker;
 
 var beingControlled = false;
-var showAsOther = 0.0;
 
-function OnTriggerStay(other : Collider){
-	showAsOther = Time.time + 0.2;
-}
-function shouldShowAsOther() : boolean {
-	return showAsOther > Time.time;
-}
 
 function FixedUpdate () {
 
