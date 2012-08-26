@@ -22,7 +22,10 @@
 	public function Awake(){
 		if(animationStruct == null || animationStruct.frames.length == 0){
 			animationStruct = animationFromDefault();
+		}else{
+			
 		}
+		
 		
 		if(playOnAwake)
 			play();
@@ -69,6 +72,7 @@
 	
 	public function setSprite(animationStruct : AnimationStruct){
 		this.animationStruct = animationStruct;
+		defaultFrame = AnimationStruct.frameAt(animationStruct, playSpeed * timeOfInterest());
 	}
 	
 	public function setSprite(spriteName : String){

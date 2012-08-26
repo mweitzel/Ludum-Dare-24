@@ -113,6 +113,40 @@ function makeUpsideDownTriangle(i : int, j : int) : SpriteAnimation {
 
 }
 
+static function getTileType(myTileMaker : triTileMaker, i : int, j : int) : String {
+	i = i/12;
+	j = -j/10;
+	
+	
+	if(i < 0 || i > myTileMaker.noise.size || j < 0 || j > myTileMaker.noise.size)
+		return "x";
+	
+	var point1 = myTileMaker.noise.field[i, j+1];
+	var point2 = myTileMaker.noise.field[i, j];
+	var point3 = myTileMaker.noise.field[i+1, j];
+	
+	var points = Vector3(point1, point2, point3);
+	var prefix = "";
+	if((points.x <  myTileMaker.valueLow*2 &&
+		points.y <  myTileMaker.valueLow*2 &&
+		points.z <  myTileMaker.valueLow*2)
+	)	
+		prefix = "l";
+	else if((points.x >  myTileMaker.valueHigh*2 &&
+	points.y >  myTileMaker.valueHigh*2 &&
+	points.z >  myTileMaker.valueHigh*2)
+//	||
+//	(points.x <  valueLow*8 ||
+//	points.y <  valueLow*8 ||
+//	points.z <  valueLow*8)
+	)	
+		prefix = "h";
+	else
+		prefix = "m";
+	
+	return prefix;
+}
+
 function makeTriangleToTheRight(i : int, j : int) : SpriteAnimation {
 //	Debug.Log(noise.field.length + " " + noise.field[0].length);
 	var point1 = noise.field[i+1, j];
