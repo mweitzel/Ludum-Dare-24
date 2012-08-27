@@ -58,10 +58,6 @@ function FixedUpdate () {
 		Mover.move(transform, direc, stats, tileMaker, previous);
 	}
 
-	var type = tileMaker.getTileType(tileMaker, transform.position.x+5, transform.position.y-5);
-	if(type == "x")
-		Destroy(gameObject);
-	
 }
 private var previous : Vector3;
 var walkUntil = 0.0;
@@ -111,7 +107,8 @@ class Mover {
 			direction = -10*direction;//lastDirection;
 			}
 		
-		transform.position += direction * speed;
+		 transform.gameObject.rigidbody.AddForce(500*direction * speed );
+//		transform.position += direction * speed;
 		
 		if(direction.y > 0){
 			transform.rotation.z = 0;
